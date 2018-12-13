@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel  --port 9000 example/index.html",
     "build": "node build.js",
-    "publish":"npm publish --access public",
+    "publish":"npm run build && npm publish --access public",
     "doc":"docsify serve docs"
   },
 
