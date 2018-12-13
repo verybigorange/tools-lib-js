@@ -1,1 +1,1 @@
-export const NAME = 'tools-js';
+export const NAME = 'tools-lib-js';

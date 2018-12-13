@@ -1,8 +1,8 @@
-# tools-js <small>0.0.1</small>
+# tools-lib-js <small>0.0.1</small>
 
-> 对一些常用的js方法收集
+> js方法集
 
-[GitHub](https://github.com/verybigorange/tools-js)
+[GitHub](https://github.com/verybigorange/tools-lib-js)
 [Get Started](/lib/_type.md)
 
 <!-- 背景色 -->

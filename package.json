@@ -1,5 +1,5 @@
 {
-  "name": "tools-js",
+  "name": "tools-lib-js",
   "version": "0.0.1",
   "description": "My common tools",
   "main": "dist/tools.js",
@@ -19,16 +19,17 @@
   "author": "zhoucheng",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/verybigorange/tools-js/issues"
+    "url": "https://github.com/verybigorange/tools-lib-js/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/verybigorange/tools-js.git"
+    "url": "https://github.com/verybigorange/tools-lib-js.git"
   },
   "keywords": [
     "tools",
-    "tool-js",
-    "tool"
+    "tools-lib-js",
+    "tool",
+    "utils"
   ],
   "devDependencies": {
     "ansi-styles": "^3.2.1",
