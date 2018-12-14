@@ -3,7 +3,7 @@
 > js方法集
 
 [GitHub](https://github.com/verybigorange/tools-lib-js)
-[Get Started](/lib/_about.md)
+[Get Started](/other/_about.md)
 
 <!-- 背景色 -->
 
