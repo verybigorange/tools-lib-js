@@ -1,4 +1,6 @@
 import { log_error } from "../../uitils/log";
+import Observer from './lib/Observer';
+import Type from '../Type/index'
 
 const Utils = {
   /**
@@ -56,6 +58,49 @@ const Utils = {
         time = null;
       }, t);
     };
+  },
+
+  /**
+   * @description 深拷贝
+   * @param { Array | Object } 被拷贝的值
+   * @return { Array | Object } 拷贝成功的值
+   */
+  deepClone(val){
+    const isArray = Type.isArray(val);
+    const isObject = Type.isObject(val);
+    if(isArray){
+      const arr = [];
+      for(let item of val){
+        if(Type.isArray(item) || Type.isObject(item)){
+          arr.push(this.deepClone(item));
+        }else{
+          arr.push(item)
+        }
+      }
+      return arr
+    }
+    if(isObject){
+      const obj = {};
+      for(let key in val){
+        if(Type.isArray(val[key]) || Type.isObject(val[key])){
+          obj[key] = this.deepClone(val[key])
+        }else{
+          obj[key] = val[key]
+        }
+      }
+      return obj
+    }
+    log_error("in deepClone,arg type must be Array or Object");
+  },
+
+  /**
+   * @description 生成观察者
+   * @param { Array | Object } 原始数据
+   * @return { Array | Object } 原始数据的副本，观察者
+   */
+  observable(dep){
+    const copy = this.deepClone(dep)
+    return new Observer(copy).observe()
   }
 };
 
