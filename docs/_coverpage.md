@@ -1,4 +1,4 @@
-# tools-lib-js <small>0.0.2</small>
+# tools-lib-js <small>0.0.3</small>
 
 > js方法集
 
