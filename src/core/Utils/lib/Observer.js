@@ -18,7 +18,7 @@ class Observer {
       set: (obj, prop, value) => {
         obj[prop] = value;
         if (typeof this.callback === "function") {
-          this.callback(obj);
+          this.callback(obj,prop,value);
         }
         return true;
       }

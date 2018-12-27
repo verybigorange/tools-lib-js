@@ -1,12 +1,12 @@
 import "../src/index";
 
-console.log(_t);
+console.log($$);
 
-// document.body.onclick = _t.throttle(() => {
+// document.body.onclick = $$.throttle(() => {
 //   console.log(1);
 // }, 3000);
 
-// const debounceFn = _t.debounce((val) => {
+// const debounceFn = $$.debounce((val) => {
 //     console.log(val);
 //   }, 1000);
 
@@ -15,7 +15,7 @@ console.log(_t);
 // }
 
 let obj = {a:1,b:2}
-let observer = _t.observable(obj).subscribe(newVal => console.log(newVal))
+let observer = $$.observable(obj).subscribe((newVal,key,value) => console.log(newVal,key,value))
 
 observer.a = 2
 observer.b = 3

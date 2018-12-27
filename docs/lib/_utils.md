@@ -9,7 +9,7 @@ utils是一些工具方法
 ##### `Example`:
 ```js
     // 每隔3s才打印一次1 
-    document.body.onclick = _t.throttle(() => {
+    document.body.onclick = $$.throttle(() => {
         console.log(1);
     }, 3000);
 ```
@@ -22,7 +22,7 @@ utils是一些工具方法
 ##### `Example`:
 ```js
     // 1s的时间内不能重复触发，触发了会重新计时，用在动态搜索比较多
-    const debounceFn = _t.debounce((val) => {
+    const debounceFn = $$.debounce((val) => {
         console.log(val);
     }, 1000);
 
@@ -41,8 +41,8 @@ utils是一些工具方法
 ```js
     let obj = {a:1,b:2,c:[1,2,3]};
     let arr = [1,2,3];
-    let cloneObj = _t.deepClone(obj);
-    let cloneArr = _t.deepClone(arr);
+    let cloneObj = $$.deepClone(obj);
+    let cloneArr = $$.deepClone(arr);
     obj === cloneObj;       // false
     obj.c === cloneObj.c;   // false
     arr === cloneArr;       // false
@@ -53,18 +53,18 @@ utils是一些工具方法
 ##### 参数
 * { Array \| Object } 原始数据
 ##### 返回值
-* { Array \| Object } 原始数据的副本，观察者 @prop subscribe 订阅通知，每次对观察者修改都会触发subscribe
+* { Array \| Object } 原始数据的副本，观察者 @prop subscribe 订阅通知 @arg(新值,修改的key,修改的value)，每次对观察者修改都会触发subscribe
 ##### `Example`:
 ```js
-    let obj = {a:1,b:2}
-    let observer = _t.observable(obj).subscribe(newVal => console.log(newVal))
+   let obj = {a:1,b:2}
+   let observer = $$.observable(obj).subscribe((newVal,key,value) => console.log(newVal,key,value))
 
     observer.a = 2
     observer.b = 3
     console.log(obj)
 
     //  打印结果 
-    //  {a:2,b:2}
-    //  {a:2,b:3}
+    //  {a:2,b:2} 'a' 2
+    //  {a:2,b:3} 'b' 3
     //  {a:1,b:2}
 ```
