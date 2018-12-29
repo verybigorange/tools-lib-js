@@ -24,6 +24,12 @@ console.log($$);
 // const $$arr = $$.of([1,2,3])
 // $$arr.push(0)
 // console.log($$.of([1,2,3,4]).map(item=>item*2).$$pop(0).$$pop([0,1]))
-console.log($$.of([1,2,3]).$$push(4))
-console.log($$.of([1,2,3]).$$unshift(4))
-console.log($$.of([1,2,3]).$$shift())
+// console.log($$.of([1,2,3]).$$push(4))
+// console.log($$.of([1,2,3]).$$unshift(4))
+// console.log($$.of([1,2,3]).$$shift())
+
+// console.log($$.of([1,2,3]).$$reverse().$$push(0))
+// console.log($$.of([1,2,3]).$$splice(0,1,'a','b'))
+
+console.log($$.of([4,2,3]).$$sort(function(a,b){return b-a}))
+console.log($$.of([4,2,3]).$$sort(function(a,b){return a-b}))

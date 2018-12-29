@@ -3,6 +3,9 @@ import Type from "../Type/index.js";
 import Uitils from "../Utils/index.js";
 
 class $$Array extends Array {
+  /**
+   * @method 删除某个或者多个元素
+   */
   $$pop(index) {
     const len = this.length;
     return this.filter((item, i) => {
@@ -14,6 +17,36 @@ class $$Array extends Array {
         return i != index;
       }
     });
+  }
+
+  $$push(el) {
+    this.push(el);
+    return this;
+  }
+
+  $$unshift(el) {
+    this.unshift(el);
+    return this;
+  }
+
+  $$shift() {
+    this.shift();
+    return this;
+  }
+
+  $$reverse() {
+    this.reverse();
+    return this;
+  }
+
+  $$splice() {
+    this.splice.apply(this,arguments);
+    return this;
+  }
+
+  $$sort() {
+    this.sort.apply(this,arguments);
+    return this;
   }
 
   __init(resource) {
