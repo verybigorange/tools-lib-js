@@ -21,6 +21,9 @@ console.log($$);
 // observer.b = 3
 // observer.c = 4
 // console.log(obj)
-const $$arr = $$.of([1,2,3])
+// const $$arr = $$.of([1,2,3])
 // $$arr.push(0)
-console.log($$.of([1,2,3,4]).map(item=>item*2).$$pop(0).$$pop([0,1]))
+// console.log($$.of([1,2,3,4]).map(item=>item*2).$$pop(0).$$pop([0,1]))
+console.log($$.of([1,2,3]).$$push(4))
+console.log($$.of([1,2,3]).$$unshift(4))
+console.log($$.of([1,2,3]).$$shift())
