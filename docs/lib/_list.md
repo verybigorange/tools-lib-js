@@ -1,5 +1,5 @@
 # List
-基于Facebook的immutable库的列表的操作方法。
+基于Facebook的immutable库的列表的操作方法,如果方法中返回的是list对象则支持链式操作。
 
 ## of
 `of` 将数组包装，返回List对象
