@@ -68,3 +68,9 @@ console.log($$);
 // const obj = {a:1,b:2}
 // const obj1 = $$.of(obj).set('a',0).toObject()
 // console.log(obj,obj1)
+console.log($$.isPhone('17723319394'))
+console.log($$.isIDCard('51018319930420001X'))
+console.log($$.isEmail('449732828@qq.com'))
+console.log($$.isTel('028-88770277'))
+console.log($$.isTel('88770277'))
+console.log($$.isPostal('611530'))

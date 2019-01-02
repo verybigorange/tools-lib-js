@@ -7,3 +7,4 @@
   * [List](/lib/_list.md)
   * [Map](/lib/_map.md)
   * [utils](/lib/_utils.md)
+  * [exp](/lib/_exp.md)
