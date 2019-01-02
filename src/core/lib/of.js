@@ -1,9 +1,9 @@
 import Type from '../Type/index.js'
-import $$Array from '../Array/index.js'
+import { List } from 'immutable'
 
 export default function (wrap){
     if(Type.isArray(wrap)){
-        return new $$Array(wrap).__init(wrap)
+        return List(wrap)
     }
     if(Type.isObject(wrap)){
         

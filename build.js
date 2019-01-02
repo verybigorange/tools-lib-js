@@ -20,7 +20,7 @@ const inputOptions = {
 };
 const outputOptions = {
   file: 'dist/tools.js',
-  format: 'cjs',
+  format: 'umd',
   name: 'tools'
 };
 
