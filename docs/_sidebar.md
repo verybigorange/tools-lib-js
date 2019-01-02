@@ -4,5 +4,6 @@
   * [更新内容](/other/_update.md)
 * 内容
   * [type](/lib/_type.md)
-  * [list](/lib/_list.md)
+  * [List](/lib/_list.md)
+  * [Map](/lib/_map.md)
   * [utils](/lib/_utils.md)

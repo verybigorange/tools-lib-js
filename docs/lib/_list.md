@@ -207,7 +207,7 @@
 ```
 
 ## map
-`filter` 
+`map` 
 ##### 参数
 * { Function }
 ##### `Example`:
