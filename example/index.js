@@ -30,7 +30,7 @@ console.log($$);
 // console.log($$.of([1,2,3]).set(0,'a'))
 // console.log($$.of([1,2,3]).delete(1))
 // console.log($$.of([1,2,3]).insert(1,'a'))
-// console.log($$.of([1,2,3]).pop())
+// console.log($$.of([1,2,3]).pop().pop().toArray())
 
 // console.log($$.of([1,2,3]).push(4).reverse())
 // console.log($$.of([4,2,3]).sort(function(a,b){return b-a}))
@@ -68,9 +68,56 @@ console.log($$);
 // const obj = {a:1,b:2}
 // const obj1 = $$.of(obj).set('a',0).toObject()
 // console.log(obj,obj1)
-console.log($$.isPhone('17723319394'))
-console.log($$.isIDCard('51018319930420001X'))
-console.log($$.isEmail('449732828@qq.com'))
-console.log($$.isTel('028-88770277'))
-console.log($$.isTel('88770277'))
-console.log($$.isPostal('611530'))
+// console.log($$.isPhone('17723319394'))
+// console.log($$.isIDCard('51018319930420001X'))
+// console.log($$.isEmail('449732828@qq.com'))
+// console.log($$.isTel('028-88770277'))
+// console.log($$.isTel('88770277'))
+// console.log($$.isPostal('611530'))
+
+
+// toArray
+// const arr = [[0,1],2,3];
+// const arr1 = $$.of(arr).$$pop().$$pop().$$toArray()
+// arr1[0][0] = 'a'
+// console.log(arr1,arr)
+// console.log($$.of([1,2,3]).$$pop().$$pop().$$toArray())
+
+// toJS
+// const arr = [[0,1],2,3];
+// const arr1 = $$.of(arr).$$pop().$$pop().$$toJS()
+// arr1[0][0] = 'a'
+// console.log(arr1,arr)
+// console.log($$.of([1,2,3]).$$pop().$$pop().$$toJS())
+// console.log($$.of([1,2,3]).$$push('a').$$toJS())
+// console.log($$.of([1,2,3]).$$reverse().$$toJS())
+// console.log($$.of([1,2,3]).$$count())
+// console.log($$.of([1,2,3]).$$splice(0,1,'a','b').$$push('c').$$toArray())
+// console.log($$.of([1,2,3]).$$clear().$$toArray())
+// const arr = [1,2,3]
+// console.log($$.of(arr).$$join('.'),arr)
+// console.log($$.of(arr).$$slice(0,1))
+
+// console.log($$.of(arr).$$filter(item => item>1))
+// console.log($$.of(arr).$$map(item => item*2))
+// console.log($$.of(arr).$$every(item => item>0))
+// console.log($$.of([1,2,3]).$$reduce((sum,item) => sum + item , 2))
+// console.log($$.of([1,2,3]).$$reduceRight((sum,item) => sum + item , 2))
+
+
+// const obj = {a:1,b:2,c:3}
+// const obj2 = $$.of(obj).$$toObject()
+// obj2.a = 0
+// console.log(obj,obj2)
+
+// console.log($$.of(obj).$$set('b',100))
+// console.log($$.of(obj).$$delete('b'))
+// console.log($$.of(obj).$$deleteAll(['a','b']))
+// console.log($$.of(obj).$$clear())
+// console.log($$.of({a:1,b:2,c:3}).$$merge({c:4,d:5}).$$toObject())
+// console.log($$.of(obj).$$map(item=>item*2))
+// console.log($$.of(obj).$$filter(item=>item>1))
+// console.log($$.of(obj).$$forEach((item,key)=>console.log(item,key)))
+// console.log($$.of(obj).$$mapKeys((key)=>console.log(key)))
+// console.log($$.of(obj).$$has('a'))
+// console.log(obj)

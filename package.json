@@ -1,6 +1,6 @@
 {
   "name": "tools-lib-js",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "My common tools",
   "main": "dist/tools.js",
   "scripts": {
@@ -12,8 +12,7 @@
   },
   "files": [
     "src",
-    "dist/*.js",
-    "example/**"
+    "dist/*.js"
   ],
   "author": "zhoucheng",
   "license": "ISC",
@@ -45,6 +44,6 @@
     "rollup-plugin-uglify": "^6.0.0"
   },
   "dependencies": {
-    "immutable": "^4.0.0-rc.12"
+    "immer": "^1.9.3"
   }
 }

@@ -1,4 +1,4 @@
-# tools-lib-js <small>0.0.9</small>
+# tools-lib-js <small>0.0.10</small>
 
 > js方法集
 
@@ -7,4 +7,4 @@
 
 <!-- 背景色 -->
 
-![color](#f0f0f0)
+<!-- ![color](#f0f0f0) -->

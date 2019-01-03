@@ -1,8 +1,8 @@
 # Map
-基于Facebook的immutable库的Map的操作方法,如果方法中返回的是Map对象则支持链式操作。
+immutable的Map操作方法,如果方法中返回的是$$Map对象则支持链式操作。
 
 ## of
-`of` 将数组包装，返回Map对象
+`of` 将数组包装，返回$$Map对象
 ##### 参数
 * { Object } 数据源
 ##### `Example`:
@@ -17,139 +17,129 @@
    $$.of({a:1,b:2,c:3}).size // 3
 ```
 
-## toObject
-`toObject` 将Map浅拷贝返回原生对象
+## $$toObject
+`$$toObject` 将Map浅拷贝返回原生对象
 ##### `Example`:
 ```js
-    $$.of({a:1.b:2}).toObject() // {a:1.b:2}
+    $$.of({a:1.b:2}).$$toObject() // {a:1.b:2}
 ```
 
 
-## toJS
-`toJS` 将Map深拷贝返回原生对象
+## $$toJS
+`$$toJS` 将Map深拷贝返回原生对象
 ##### `Example`:
 ```js
-    $$.of({a:1.b:2}).toJS() // {a:1.b:2}
+    $$.of({a:1.b:2}).$$toJS() // {a:1.b:2}
 ```
 
 
-## get
+## $$get
 `count` 获取Map中的某个值
 ##### 参数
 * { String } key
 ##### `Example`:
 ```js
-   {a:1,b:2,c:3}).get('b') // 2
+   {a:1,b:2,c:3}).$$get('b') // 2
 ```
 
-## set
+## $$set
 `count` 设置Map中的某个值
 ##### 参数
 * { String } key
 * { Any } value
 ##### `Example`:
 ```js
-   $$.of({a:1,b:2}).set('a',0).toObject() // {a:0.b:2}
+   $$.of({a:1,b:2}).$$set('a',0).$$toObject() // {a:0.b:2}
 ```
 
 
-## delete
-`delete` 删除Map中的某个属性
+## $$delete
+`$$delete` 删除Map中的某个属性
 ##### 参数
 * { String } key
 ##### `Example`:
 ```js
-   $$.of({a:1,b:2,c:3}).delete('a').toObject() // {b:2，c:3}
+   $$.of({a:1,b:2,c:3}).$$delete('a').$$toObject() // {b:2，c:3}
 ```
 
-## deleteAll
-`delete` 删除Map中的多个属性
+## $$deleteAll
+`$$delete` 删除Map中的多个属性
 ##### 参数
 * { Array<String> } keys
 ##### `Example`:
 ```js
-   $$.of({a:1,b:2,c:3}).deleteAll(['a','b']).toObject() // {c:3}
+   $$.of({a:1,b:2,c:3}).$$deleteAll(['a','b']).$$toObject() // {c:3}
 ```
 
 
-## clear
-`clear` 清空Map
+## $$clear
+`$$clear` 清空Map
 
 ##### `Example`:
 ```js
-    $$.of({a:1,b:2,c:3}).clear().toObject() // {}
+    $$.of({a:1,b:2,c:3}).$$clear().$$toObject() // {}
 ```
 
 
-## merge
-`merge` 合并
+## $$merge
+`$$merge` 合并
 ##### 参数
 * { Object } 合并源
 ##### `Example`:
 ```js
-  $$.of({a:1,b:2,c:3}).merge({c:4,d:5}).toObject() // {a: 1, b: 2, c: 4, d: 5}
+  $$.of({a:1,b:2,c:3}).$$merge({c:4,d:5}).$$toObject() // {a: 1, b: 2, c: 4, d: 5}
 ```
 
-## mergeDeep
-`mergeDeep` 多层合并
-##### 参数
-* { Object } 合并源
-##### `Example`:
-```js
-  $$.of({a:{aa:1},b:2,c:3}).mergeDeep({a:{aa:3},b:3}).toObject() 
-  // {a:{aa:3},b:3,c:3}
-```
-
-## map
-`map` 
+## $$map
+`$$map` 
 ##### 参数
 * { Function }
 ##### `Example`:
 ```js
-   $$.of({a:1,b:2,c:3}).map(v => v*2).toObject() // {a: 2, b: 4, c: 6}
+   $$.of({a:1,b:2,c:3}).$$map(v => v*2).$$toObject() // {a: 2, b: 4, c: 6}
 ```
 
 
-## filter
-`filter` 过滤
+## $$filter
+`$$filter` 过滤
 ##### 参数
 * { Function }
 ##### `Example`:
 ```js
-   $$.of({a:1,b:2,c:3}).filter(v => v>1).toObject() // {b: 2, c: 3}
+   $$.of({a:1,b:2,c:3}).$$filter(v => v>1).$$toObject() // {b: 2, c: 3}
 ```
 
-## forEach
-`forEach` 迭代Map中每个元素
+## $$forEach
+`$$forEach` 迭代Map中每个元素(有副作用)
 ##### 参数
 * { Function }
 ##### `Example`:
 ```js
-   $$.of({a:1,b:2,c:3}).forEach((item,key) => console.log(item,key))
+   $$.of({a:1,b:2,c:3}).$$forEach((item,key) => console.log(item,key))
    // 1 "a"
    // 2 "b"
    // 3 "c"
 ```
 
 
-## mapKeys
-`mapKeys` 遍历Map的key值
+## $$mapKeys
+`$$mapKeys` 遍历Map的key值
 ##### 参数
 * { Function }
 ##### `Example`:
 ```js
-  $$.of({a:1,b:2,c:3}).mapKeys(item=>console.log(item))
+  $$.of({a:1,b:2,c:3}).$$mapKeys(item=>console.log(item))
   // a
   // b
   // c
 ```
 
-## has
-`has` 是否含有某个属性
+## $$has
+`$$has` 是否含有某个属性
 ##### 参数
 * { String }
 ##### `Example`:
 ```js
-  $$.of({a:1,b:2,c:3}).has('a') // true
-  $$.of({a:1,b:2,c:3}).has('d') // false
+  $$.of({a:1,b:2,c:3}).$$has('a') // true
+  $$.of({a:1,b:2,c:3}).$$has('d') // false
 ```
