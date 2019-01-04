@@ -1,13 +1,9 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "modules": false
-      }
-    ]
-  ],
+  "presets": [["env", { "modules": false }]],
   "plugins": [
-    "external-helpers"
+    "transform-runtime",
+    "babel-plugin-transform-regenerator",
+    "babel-plugin-transform-es2015-modules-commonjs",
+    "babel-plugin-external-helpers"
   ]
 }

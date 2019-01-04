@@ -13,7 +13,11 @@ const inputOptions = {
   plugins:[
     resolve(),
     babel({
-      exclude: 'node_modules/**'
+      exclude: 'node_modules/**',
+      plugins: ['external-helpers'],
+      externalHelpers: true,
+      presets: [['env', { modules: false }]],
+      babelrc: false
     }),
     uglify()
   ]
