@@ -79,7 +79,7 @@ class $$List {
 
   $$shift() {
     return this.__handle(draft => {
-      draft.shift(el);
+      draft.shift();
     });
   }
 
