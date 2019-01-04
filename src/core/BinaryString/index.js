@@ -293,6 +293,24 @@ function BinaryString (vInput, sEncoding /* optional (default: UTF-8) */, nOffse
 
 /* CONSTRUCTOR'S METHODS */
 
+/**
+ * UTF-8是Unicode的实现方式之一.
+ * UTF-8是一种变长的编码方式. 它可以使用1~6个字节表示一个符号, 根据不同的符号而变化字节长度.
+ * UTF-8的编码规则很简单, 只有两条:
+ * 1) 对于单字节的符号, 字节的第一位设为0, 后面7位为这个符号的unicode码. 因此对于英语字母, UTF-8编码和ASCII码是相同的.
+ * 2) 对于n字节的符号(n>1), 第一个字节的前n位都设为1, 第n+1位设为0, 后面字节的前两位一律设为10. 剩下的没有提及的二进制位, 全部为这个符号的unicode码.
+ * ------------------------------------------------------
+ * | Unicode符号范围   | UTF-8编码方式
+ * | （十六进制）       | （二进制）
+ * |-------------------|---------------------------------
+ * | 0000 0000 - 0000 007F | 0xxxxxxx
+ * | 0000 0000 - 0000 07FF | 110xxxxx 10xxxxxx
+ * | 0000 0000 - 0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
+ * | 0001 0000 - 0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+ * | 0020 0000 - 03FF FFFF | 111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+ * | 0400 0000 - 7FFF FFFF | 1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+ */
+
 BinaryString.loadUTF8CharCode = function (aChars, nIdx) {
   /* The ISO 10646 view of UTF-8 considers valid codepoints encoded by 1-6 bytes, 
    * while the Unicode view of UTF-8 in 2003 has limited them to 1-4 bytes in order to 
