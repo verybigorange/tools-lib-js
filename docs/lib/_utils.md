@@ -68,3 +68,30 @@ utils是一些工具方法
     //  {a:2,b:3} 'b' 3
     //  {a:1,b:2}
 ```
+
+## deviceIsMobile
+`deviceIsMobile` 当前设备是否是手机
+##### 返回值
+* { Boolean } 
+##### `Example`:
+```js
+   $$.deviceIsMobile() // false
+```
+
+## deviceIsAndroid
+`deviceIsAndroid` 当前设备是否是android
+##### 返回值
+* { Boolean } 
+##### `Example`:
+```js
+   $$.deviceIsAndroid() // false
+```
+
+## deviceIsIOS
+`deviceIsIOS` 当前设备是否是IOS
+##### 返回值
+* { Boolean } 
+##### `Example`:
+```js
+   $$.deviceIsIOS() // false
+```

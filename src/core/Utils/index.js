@@ -1,6 +1,6 @@
 import { log_error } from "../../uitils/log";
-import Observer from './lib/Observer';
-import Type from '../Type/index'
+import Observer from "./lib/Observer";
+import Type from "../Type/index";
 
 const Utils = {
   /**
@@ -47,12 +47,12 @@ const Utils = {
 
     return function() {
       const arg = arguments;
-      
+
       if (time) {
         clearTimeout(time);
         time = null;
-        return
-      };
+        return;
+      }
       time = setTimeout(() => {
         fn.apply(this, arg);
         time = null;
@@ -65,30 +65,30 @@ const Utils = {
    * @param { Array | Object } 被拷贝的值
    * @return { Array | Object } 拷贝成功的值
    */
-  deepClone(val){
+  deepClone(val) {
     const isArray = Type.isArray(val);
     const isObject = Type.isObject(val);
-    if(isArray){
+    if (isArray) {
       const arr = [];
-      for(let item of val){
-        if(Type.isArray(item) || Type.isObject(item)){
+      for (let item of val) {
+        if (Type.isArray(item) || Type.isObject(item)) {
           arr.push(this.deepClone(item));
-        }else{
-          arr.push(item)
+        } else {
+          arr.push(item);
         }
       }
-      return arr
+      return arr;
     }
-    if(isObject){
+    if (isObject) {
       const obj = {};
-      for(let key in val){
-        if(Type.isArray(val[key]) || Type.isObject(val[key])){
-          obj[key] = this.deepClone(val[key])
-        }else{
-          obj[key] = val[key]
+      for (let key in val) {
+        if (Type.isArray(val[key]) || Type.isObject(val[key])) {
+          obj[key] = this.deepClone(val[key]);
+        } else {
+          obj[key] = val[key];
         }
       }
-      return obj
+      return obj;
     }
     log_error("in deepClone,arg type must be Array or Object");
   },
@@ -98,9 +98,39 @@ const Utils = {
    * @param { Array | Object } 原始数据
    * @return { Array | Object } 原始数据的副本，观察者
    */
-  observable(dep){
-    const copy = this.deepClone(dep)
-    return new Observer(copy).observe()
+  observable(dep) {
+    const copy = this.deepClone(dep);
+    return new Observer(copy).observe();
+  },
+
+  /**
+   * @description 当前设备是否是手机
+   * @return { Boolean }
+   */
+  deviceIsMobile() {
+    if (
+      navigator.userAgent.match(
+        /(phone|pad|pod|iPhone|iPod|ios|iPad|android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+      )
+    )
+      return true;
+    else return false;
+  },
+
+  /**
+   * @description 当前设备是否是android
+   * @return { Boolean }
+   */
+  deviceIsAndroid() {
+    return /android/.test(navigator.userAgent.toLowerCase());
+  },
+
+  /**
+   * @description 当前设备是否是IOS
+   * @return { Boolean }
+   */
+  deviceIsIOS() {
+    return /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
   }
 };
 
