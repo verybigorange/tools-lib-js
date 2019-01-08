@@ -110,3 +110,21 @@ utils是一些工具方法
 ```js
    $$.deviceIsIOS() // false
 ```
+
+## once
+`once` 让函数只执行一次
+##### 参数
+* { Function }
+##### 返回值
+* { Function } 包装过的函数
+##### `Example`:
+```js
+    const wrapFn = $$.once(function(){
+            console.log(1)
+         });
+    wrapFn()
+    wrapFn()   
+    wrapFn()
+
+    // 1
+```

@@ -103,8 +103,6 @@ const Utils = {
     return new Observer(copy).observe();
   },
 
-
-
   /**
    * @description 时间格式化
    * @param { Data } 时间
@@ -121,7 +119,7 @@ const Utils = {
       "q+": Math.floor((date.getMonth() + 3) / 3), //季度
       S: date.getMilliseconds() //毫秒
     };
-    
+
     if (/(y+)/.test(fmt)) {
       fmt = fmt.replace(
         RegExp.$1,
@@ -169,6 +167,20 @@ const Utils = {
    */
   deviceIsIOS() {
     return /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
+  },
+
+  /**
+   * @description 只能执行一次
+   * @param { Function }
+   * @return { Function }
+   */
+  once(fn) {
+    let execute = false;
+    return () => {
+      if (execute) return;
+      fn.apply(this, arguments);
+      execute = true;
+    };
   }
 };
 

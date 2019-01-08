@@ -30,4 +30,12 @@ describe("utils模块", () => {
     expect($$.dateFormat(d, "yyyy-MM-dd")).toBe("2019-01-01");
     expect($$.dateFormat(d, "hh:mm:ss")).toBe("00:00:00");
   });
+
+  it("once", () => {
+    const fn = jest.fn(() => true);
+    const wrapFn = $$.once(fn);
+    wrapFn();
+    wrapFn();
+    expect(fn).toHaveBeenCalledTimes(1);
+  });
 });
