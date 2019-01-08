@@ -73,7 +73,7 @@ utils是一些工具方法
 `dateFormat` 日期格式化
 ##### 参数
 * { Data } 时间
-* { String } 格式，默认'yyyy-MM-dd hh:mm:ss'
+* { String } 格式，默认"yyyy-MM-dd hh\:mm\:ss'"
 ##### 返回值
 * { String } 格式化后的时间 
 ##### `Example`:

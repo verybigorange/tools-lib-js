@@ -1,30 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>tools-js - My common tools</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="My common tools">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-</head>
-<body>
-  <!-- https://docsify.js.org/#/zh-cn/quickstart  -->
-  <div id="app">加载中</div>
-  <script>
-    window.$docsify = {
-      coverpage: true,
-      name: 'tools-lib-js',
-      repo: 'https://github.com/verybigorange/tools-lib-js',
-      loadSidebar: true,
-      alias: {
-        '/.*/_sidebar.md': '/_sidebar.md'
-      },
-      // maxLevel: 4,
-      subMaxLevel: 2
-      // themeColor: '#3F51B5'
-    }
-  </script>
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>tools-js - My common tools</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="My common tools" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" />
+  </head>
+  <body>
+    <!-- https://docsify.js.org/#/zh-cn/quickstart  -->
+    <div id="app">加载中</div>
+    <script>
+      window.$docsify = {
+        coverpage: true,
+        name: "tools-lib-js",
+        repo: "https://github.com/verybigorange/tools-lib-js",
+        loadSidebar: true,
+        alias: {
+          "/.*/_sidebar.md": "/_sidebar.md"
+        },
+        // maxLevel: 4,
+        subMaxLevel: 2,
+        // 支持本地化
+        placeholder: {
+          "/zh-cn/": "搜索",
+          "/": "Type to search"
+        },
+
+        noData: "No Results!",
+
+        // 支持本地化
+        noData: {
+          "/zh-cn/": "找不到结果",
+          "/": "No Results"
+        },
+
+        // 搜索标题的最大程级, 1 - 6
+        depth: 3
+        // themeColor: '#3F51B5'
+      };
+    </script>
+    <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  </body>
 </html>
