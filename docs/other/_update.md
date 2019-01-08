@@ -1,5 +1,14 @@
 # 更新内容
 
+### 0.1.4
+- 2019.1.8
+  - 新增`utils`中方法:
+    - `dateFormat`
+    - `deviceIsMobile`
+    - `deviceIsAndroid`
+    - `deviceIsIOS`
+    - `once`
+
 ### 0.1.3
 - 2019.1.4
   - 修复`$$shift`的报错。
