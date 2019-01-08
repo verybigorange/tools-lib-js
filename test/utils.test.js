@@ -21,4 +21,13 @@ describe("utils模块", () => {
     observer.b = "b";
     expect(fn).toHaveBeenCalledTimes(2);
   });
+
+  it("dateFormat", () => {
+    const d = new Date("2019/1/1");
+    expect($$.dateFormat(d)).toBe("2019-01-01 00:00:00");
+    expect($$.dateFormat(d, "yyyy-MM-dd hh:mm:ss")).toBe("2019-01-01 00:00:00");
+    expect($$.dateFormat(d, "yyyy-MM-dd hh:mm")).toBe("2019-01-01 00:00");
+    expect($$.dateFormat(d, "yyyy-MM-dd")).toBe("2019-01-01");
+    expect($$.dateFormat(d, "hh:mm:ss")).toBe("00:00:00");
+  });
 });
