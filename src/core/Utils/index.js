@@ -181,7 +181,62 @@ const Utils = {
       fn.apply(this, arguments);
       execute = true;
     };
-  }
+  },
+
+  /**
+   * @description 延时执行
+   * @param { Function }
+   * @param { Number } 默认1000
+   */
+  delay(fn, time = 1000) {
+    let timeId = setTimeout(() => {
+      fn.apply(this, arguments);
+      clearTimeout(timeId);
+      timeId = null;
+    }, time);
+  },
+
+  /**
+   * @description 指定层级数组扁平化
+   * @param { Array }
+   * @param { Number } 默认1 层级
+   */
+  flatten(array, depth = 1) {
+    let result = [];
+    array.forEach(item => {
+      let d = depth;
+      if (Array.isArray(item) && d > 0) {
+        result.push(...this.flatten(item, --d));
+      } else {
+        result.push(item);
+      }
+    });
+    return result;
+  },
+
+
+  /**
+   * @description 函数柯里化
+   * @param { Function } 需要柯里化的函数
+   * @return { Function } 柯里化函数
+   */
+  curry(func) {
+    const _this = this;
+    // 函数参数个数
+    const l = func.length;
+    return function curried() {
+      const args = [].slice.call(arguments);
+      // 如果当前参数少于函数所需要的参数，则返回一个函数，并且把之前参数存起来。
+      if (args.length < l) {
+        return function() {
+          const argsInner = [].slice.call(arguments);
+          return curried.apply(_this, args.concat(argsInner));
+        };
+      } else {
+        return func.apply(_this, args);
+      }
+    };
+  },
 };
 
 export default Utils;

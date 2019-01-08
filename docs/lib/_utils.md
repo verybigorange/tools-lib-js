@@ -114,7 +114,7 @@ utils是一些工具方法
 ## once
 `once` 让函数只执行一次
 ##### 参数
-* { Function }
+* { Function } 待执行的函数
 ##### 返回值
 * { Function } 包装过的函数
 ##### `Example`:
@@ -127,4 +127,45 @@ utils是一些工具方法
     wrapFn()
 
     // 1
+```
+
+## delay
+`delay` 延时执行函数
+##### 参数
+* { Function } 待执行的函数
+* { Number } 默认1000毫秒，单位`ms`
+##### `Example`:
+```js
+   $$.delay(()=> console.log(1) ,1000)  // 1秒后打印1
+```
+
+## flatten
+`flatten` 数组扁平化
+##### 参数
+* { Array } 待扁平的数组
+* { Number } 层级，默认1
+##### 返回值
+* { Array } 扁平后的数组
+##### `Example`:
+```js
+  $$.flatten([1, [2, [3, [4]], 5]]) // [1, 2, [3, [4]], 5]
+  $$.flatten([1, [2, [3, [4]], 5]], 2)  // [1, 2, 3, [4], 5]
+  $$.flatten([1, [2, [3, [4]], 5]], 3)  // [1, 2, 3, 4, 5]
+```
+
+## curry
+`curry` 函数柯里化
+##### 参数
+* { Function } 需要柯里化的函数
+##### 返回值
+* { Function } 柯里化函数
+##### `Example`:
+```js
+    const fn = function(a, b, c) {
+      return [a, b, c];
+    };
+    const curried = $$.curry(fn);
+    curried(1)(2)(3)    // [1, 2, 3]
+    curried(1, 2)(3)    // [1, 2, 3]
+    curried(1, 2, 3)    // [1, 2, 3]
 ```

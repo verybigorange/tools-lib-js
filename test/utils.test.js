@@ -1,4 +1,5 @@
 var $$ = require("./index.js");
+jest.useFakeTimers();
 
 describe("utils模块", () => {
   it("deepClone", () => {
@@ -37,5 +38,35 @@ describe("utils模块", () => {
     wrapFn();
     wrapFn();
     expect(fn).toHaveBeenCalledTimes(1);
+  });
+
+  it("delay", () => {
+    const callback = jest.fn();
+    $$.delay(callback, 2000);
+
+    // 在这个时间点上，callback回调函数还没有被调用
+    expect(callback).not.toBeCalled();
+
+    expect(setTimeout).toHaveBeenCalledTimes(1);
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 2000);
+  });
+
+  it("flatten", () => {
+    const arr = [1, [2, [3, [4]], 5]];
+
+    expect($$.flatten([1, [2, [3, [4]], 5]])).toEqual([1, 2, [3, [4]], 5]);
+    expect($$.flatten([1, [2, [3, [4]], 5]], 2)).toEqual([1, 2, 3, [4], 5]);
+    expect($$.flatten([1, [2, [3, [4]], 5]], 3)).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  it("curry", () => {
+    const fn = function(a, b, c) {
+      return [a, b, c];
+    };
+
+    const curried = $$.curry(fn);
+    expect(curried(1)(2)(3)).toEqual([1, 2, 3]);
+    expect(curried(1, 2)(3)).toEqual([1, 2, 3]);
+    expect(curried(1, 2, 3)).toEqual([1, 2, 3]);
   });
 });
