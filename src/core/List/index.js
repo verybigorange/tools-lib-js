@@ -132,7 +132,9 @@ class $$List {
   }
 
   __handle(fn) {
-    return this.__factory(this.__p(fn));
+    const __factory = this.__factory;
+    delete this
+    return __factory(this.__p(fn));
   }
 
   __p(fn) {
