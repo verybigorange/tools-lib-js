@@ -69,4 +69,10 @@ describe("utils模块", () => {
     expect(curried(1, 2)(3)).toEqual([1, 2, 3]);
     expect(curried(1, 2, 3)).toEqual([1, 2, 3]);
   });
+
+  it("unique", () => {
+    const arr = [1,2,3,3,3,4];
+    expect($$.unique(arr)).toEqual([1,2,3,4])
+  });
+  
 });

@@ -1,5 +1,13 @@
 # 更新内容
 
+### 0.1.6
+- 2019.1.9
+  - 新增`utils`中方法:
+    - `unique`
+    - `setCookie`
+    - `getCookie`
+    - `removeCookie`
+
 ### 0.1.5
 - 2019.1.8
   - 新增`utils`中方法:

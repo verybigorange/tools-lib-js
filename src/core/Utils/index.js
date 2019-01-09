@@ -237,6 +237,73 @@ const Utils = {
       }
     };
   },
+
+
+  /**
+   * @description 设置cookie
+   * @param { String } key
+   * @param { value } key
+   * @param { Time } 过期时间（非必传），单位ms，默认7天
+   */
+  setCookie (key, value, exp = 60 * 60 * 24 * 1000 * 7) {
+    let date = new Date()
+    date.setTime(date.getTime() + exp)
+    document.cookie = `${key}=${escape(value)};expires=${date.toGMTString()}`
+  },
+
+   /**
+   * @description 获取cookie
+   * @param { String } （非必传，不传获取所有cookie）key
+   * @return { String \| Object } 匹配到的值
+   */
+  getCookie (key) {
+    if (key) {
+      let reg = new RegExp(`(^| )${key}=([^;]*)(;|$)`)
+      let arr = document.cookie.match(reg)
+      return arr&&arr[2] ? arr[2] : null
+    }
+   
+    let cookies = {}
+    if (document.cookie !== '') {
+      let arrCookie = document.cookie.split('; ')
+      for (let k in arrCookie) {
+        cookies[`${unescape(arrCookie[k].split('=')[0])}`] = `${unescape(arrCookie[k].split('=')[1])}`
+      }
+      return cookies
+    } else {
+      return null
+    }
+  },
+
+
+   /**
+   * @description 删除cookie
+   * @param { String } （非必传，不传删除所有cookie）key
+   */
+  removeCookie (key) {
+    let date = new Date()
+    date.setTime(date.getTime() - 1)
+    if (key) {
+      let cookieInfo = this.getCookie(key)
+      if (cookieInfo !== null) {
+        document.cookie = `${key}=${cookieInfo};expires=${date.toGMTString()}`
+      }
+      return
+    }
+    let getAllCookies = this.getCookie()
+    for (let k in getAllCookies) {
+      document.cookie = `${k}=${getAllCookies[k]};expires=${date.toGMTString()}`
+    }
+  },
+
+  /**
+   * @description 数组去重
+   * @param { Array }
+   * @return { Array }
+   */
+  unique (arr) {
+    return [...new Set(arr)]
+  },
 };
 
 export default Utils;

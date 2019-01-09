@@ -139,20 +139,6 @@ utils是一些工具方法
    $$.delay(()=> console.log(1) ,1000)  // 1秒后打印1
 ```
 
-## flatten
-`flatten` 数组扁平化
-##### 参数
-* { Array } 待扁平的数组
-* { Number } 层级，默认1
-##### 返回值
-* { Array } 扁平后的数组
-##### `Example`:
-```js
-  $$.flatten([1, [2, [3, [4]], 5]]) // [1, 2, [3, [4]], 5]
-  $$.flatten([1, [2, [3, [4]], 5]], 2)  // [1, 2, 3, [4], 5]
-  $$.flatten([1, [2, [3, [4]], 5]], 3)  // [1, 2, 3, 4, 5]
-```
-
 ## curry
 `curry` 函数柯里化
 ##### 参数
@@ -168,4 +154,63 @@ utils是一些工具方法
     curried(1)(2)(3)    // [1, 2, 3]
     curried(1, 2)(3)    // [1, 2, 3]
     curried(1, 2, 3)    // [1, 2, 3]
+```
+
+## setCookie
+`setCookie` 设置cookie
+##### 参数
+* { String } key
+* { value } key
+* { Time } 过期时间（非必传），单位ms，默认7天
+##### `Example`:
+```js
+   // 设置一个3天的cookie
+   $$.setCookie('token','abc',60 * 60 * 24 * 1000 * 3)
+```
+
+## getCookie
+`getCookie` 获取cookie
+##### 参数
+* { String } （非必传，不传获取所有cookie）key
+##### 返回值
+* { String \| Object } 匹配到的值
+##### `Example`:
+```js
+    $$.getCookie('token') // 'abc'
+    $$.getCookie() // {token:'abc',phone:'13880111111'}
+```
+
+## removeCookie
+`removeCookie` 删除cookie
+##### 参数
+* { String } （非必传，不传删除所有cookie）key
+##### `Example`:
+```js
+    $$.removeCookie('token')
+    $$.removeCookie()
+```
+
+## unique
+`unique` 数组去重
+##### 参数
+* { Array }
+##### 返回值
+* { Array }
+##### `Example`:
+```js
+   $$.unique([1,2,2,3,3,3,4]) // [1,2,3,4]
+```
+
+## flatten
+`flatten` 数组扁平化
+##### 参数
+* { Array } 待扁平的数组
+* { Number } 层级，默认1
+##### 返回值
+* { Array } 扁平后的数组
+##### `Example`:
+```js
+  $$.flatten([1, [2, [3, [4]], 5]]) // [1, 2, [3, [4]], 5]
+  $$.flatten([1, [2, [3, [4]], 5]], 2)  // [1, 2, 3, [4], 5]
+  $$.flatten([1, [2, [3, [4]], 5]], 3)  // [1, 2, 3, 4, 5]
 ```

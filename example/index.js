@@ -105,7 +105,7 @@ console.log($$);
 // console.log($$.of([1,2,3]).$$reduceRight((sum,item) => sum + item , 2))
 
 
-const obj = {a:1,b:2,c:3}
+// const obj = {a:1,b:2,c:3}
 // const obj2 = $$.of(obj).$$toObject()
 // obj2.a = 0
 // console.log(obj,obj2)
@@ -115,9 +115,14 @@ const obj = {a:1,b:2,c:3}
 // console.log($$.of(obj).$$deleteAll(['a','b']))
 // console.log($$.of(obj).$$clear())
 // console.log($$.of({a:1,b:2,c:3}).$$merge({c:4,d:5}).$$toObject())
-console.log($$.of(obj).$$map(item=>item*2))
-console.log($$.of(obj).$$filter(item=>item>1))
-console.log($$.of(obj).$$forEach((item,key)=>console.log(item,key)))
-console.log($$.of(obj).$$mapKeys((key)=>console.log(key)))
-console.log($$.of(obj).$$has('a'))
-console.log(obj)
+// console.log($$.of(obj).$$map(item=>item*2))
+// console.log($$.of(obj).$$filter(item=>item>1))
+// console.log($$.of(obj).$$forEach((item,key)=>console.log(item,key)))
+// console.log($$.of(obj).$$mapKeys((key)=>console.log(key)))
+// console.log($$.of(obj).$$has('a'))
+// console.log(obj)
+
+$$.setCookie('token',123)
+$$.setCookie('phone',456)
+
+$$.removeCookie('token')
