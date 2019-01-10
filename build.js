@@ -14,9 +14,8 @@ const inputOptions = {
     resolve(),
     babel({
       exclude: 'node_modules/**',
-      plugins: ['external-helpers'],
-      externalHelpers: true,
-      presets: [['env', { modules: false }]],
+      plugins: ['transform-es2015-classes'],
+      presets: ['es2015-rollup',['env', { modules: false }]],
       babelrc: false
     }),
     uglify()
