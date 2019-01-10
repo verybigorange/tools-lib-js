@@ -8,3 +8,5 @@
   * [Map](/lib/_map.md)
   * [utils](/lib/_utils.md)
   * [Exp](/lib/_exp.md)
+  * [binaryString](/lib/_binaryString.md)
+
