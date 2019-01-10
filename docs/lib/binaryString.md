@@ -57,3 +57,26 @@ var mySubview2 = $$.BinaryString(s.rawData.subarray(nHindiStart, nHindiEnd), "UT
 alert(mySubview1.rawData.length); // 18
 alert(mySubview2.rawData.length); // 18
 ```
+
+## toBase64
+转换成Base64编码
+
+##### `Example`
+```javascript
+var s = $$.BinaryString("Hello world!");
+var base64S = s.toBase64(); // "SGVsbG8gd29ybGQh"
+$$.BinaryString.makeFromBase64(base64S).valueOf() === 'Hello workd!' // true
+```
+
+## subview
+截取字符串
+
+##### 参数
+- {Number} startFrom - 开始索引
+- {Number} length - 截取长度
+
+##### `Example`
+```javascript
+var s = $$.BinaryString("Hello world!");
+s.subview(3,7).valueOf() // "lo worl"
+```
