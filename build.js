@@ -14,16 +14,17 @@ const inputOptions = {
     resolve(),
     babel({
       exclude: 'node_modules/**',
-      plugins: ['transform-es2015-classes'],
       presets: ['es2015-rollup',['env', { modules: false }]],
+      plugins: ['transform-es2015-classes'],
       babelrc: false
     }),
     uglify()
+    
   ]
 };
 const outputOptions = {
   file: 'dist/tools.js',
-  format: 'cjs',
+  format: 'umd',
   name: 'tools'
 };
 

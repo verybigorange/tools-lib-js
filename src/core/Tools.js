@@ -2,12 +2,12 @@ import Type from "./Type/index.js";
 import of from "./lib/of";
 import Utils from "./Utils/index.js";
 import Exp from "./Exp/index.js";
-import Object from './Object/index.js';
+import Obj from './Object/index.js';
 import { binaryStringWrapper } from './BinaryString/index.js';
 
 function Tools() {}
 
-Tools.prototype = Object.assign({}, Object, Type, Exp, Utils, { of: of });
+Tools.prototype = Object.assign({}, Obj, Type, Exp, Utils, { of: of });
 Tools.prototype.BinaryString = binaryStringWrapper;
 Tools.prototype.constructor = Tools;
 

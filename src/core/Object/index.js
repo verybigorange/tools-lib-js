@@ -4,7 +4,7 @@
  * 但是生成对象的属性更改不会影响源对象。
  * 即：父可以影响子，但子不可以影响父。 
  */
-Object.clone = function(obj) {
+const clone = function(obj) {
     const cloneObj = Object.create(obj);
     for (let key of Object.keys(obj)) {
         if (typeof obj[key] === 'object' || typeof obj[key] === 'function') {
@@ -15,5 +15,5 @@ Object.clone = function(obj) {
 }
 
 export default {
-    clone: Object.clone,
+    clone
 }
