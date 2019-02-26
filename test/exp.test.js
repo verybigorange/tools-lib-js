@@ -9,6 +9,10 @@ describe("Exp模块", () => {
   it("isPhone", () => {
     expect($$.isPhone("88770277")).toBe(false);
     expect($$.isPhone("17723319394")).toBe(true);
+    expect($$.isPhone("16611111111")).toBe(true);
+    expect($$.isPhone("18811111111")).toBe(true);
+    expect($$.isPhone("19911111111")).toBe(true);
+    expect($$.isPhone("19811111111")).toBe(true);
   });
 
   it("isIDCard", () => {

@@ -2,7 +2,7 @@ import { log_error } from "../../uitils/log";
 
 const Exp = {
   isPhone(e) {
-    return /^1[34578]\d{9}$/.test(e)
+    return /^1[3456789]\d{9}$/.test(e)
   },
   //15位和18位的身份证   
   isIDCard(e){
