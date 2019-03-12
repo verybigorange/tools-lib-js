@@ -10,6 +10,7 @@
     "publish": "npm run build && npm publish --access public",
     "doc": "docsify serve docs"
   },
+  "pre-push": ["test"],
   "files": [
     "src",
     "dist/*.js",
@@ -48,6 +49,7 @@
     "jest-diff": "^23.6.0",
     "npm": "^6.5.0",
     "parcel-bundler": "^1.10.3",
+    "pre-push": "^0.1.1",
     "regenerator-runtime": "^0.13.1",
     "rmrf": "^2.0.0",
     "rollup": "^0.67.3",
