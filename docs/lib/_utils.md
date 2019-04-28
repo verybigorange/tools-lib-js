@@ -72,7 +72,7 @@ utils是一些工具方法
 ## dateFormat
 `dateFormat` 日期格式化
 ##### 参数
-* { Data } 时间
+* { Data } 时间，时间对象。
 * { String } 格式，默认"yyyy-MM-dd hh\:mm\:ss'"
 ##### 返回值
 * { String } 格式化后的时间 
@@ -80,7 +80,7 @@ utils是一些工具方法
 ```js
    $$.dateFormat(new Date()) // 2019-01-08 10:10:19
    $$.dateFormat(new Date(),'yyyy-MM-dd hh:mm:ss') // 2019-01-08 10:10:19
-   $$.dateFormat(new Date(),yyyy-MM-dd) // 2019-01-08
+   $$.dateFormat(new Date(),'yyyy-MM-dd') // 2019-01-08
 ```
 
 
